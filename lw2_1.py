@@ -7,7 +7,7 @@ with open(r"C:\Users\Lena\Desktop\Программирование на Пито
     next(books_file)
     books_reader = csv.reader(books_file, delimiter=';')
     for book in books_reader:
-        catalog.append(book)
+        catalog.append(book)    
 
 #ISBN;Book-Title;Book-Author;Year-Of-Publication;Publisher;Downloads;Price
 #task_1: Название > 30 символов
@@ -16,7 +16,8 @@ ans_1 = 0
 for book in catalog:
     if len(book[1]) > 30: 
         ans_1 += 1
-print("The number of records where the string in the Name field is longer than 30 characters:", ans_1, end='\n\n')
+print("The number of records where the string in the\
+       Name field is longer than 30 characters:", ans_1, end='\n\n')
 
 #task_2: Поиск книг по автору. 
 print("Task_2", "Please enter the author’s name:", sep='\n')
@@ -39,7 +40,10 @@ print()
 print("Task_3")
 with open("ans_3.txt", "w", encoding="utf-8") as ans_3:
     for i, book in enumerate(catalog[:20], start=1):
-        ans_3.write(f"{i}. {book[2]}. {book[1]} - {book[3]}"+'\n')
+        author = book[2]
+        title = book[1]
+        year = book[3]
+        ans_3.write(f"{i}. {author}. {title} - {year}"+'\n')
 print("Done")
 print("The file will be saved here:", os.getcwd(), end='\n\n')
 
